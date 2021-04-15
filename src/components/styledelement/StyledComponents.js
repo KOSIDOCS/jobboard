@@ -247,6 +247,7 @@ export const SearchBtn = styled.button`
   &:hover {
     background: ${darken(0.2, theme.btnMain)};
     border: 2px solid ${darken(0.2, theme.btnMain)};
+    cursor: pointer;
   }
 `;
 /**End of Search Button */

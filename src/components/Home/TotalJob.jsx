@@ -51,7 +51,7 @@ const TotalJob = ({ currentSort, sortChnage }) => {
                   <Compass size="20" color={theme.btnMain} />
                 </StyledMenuItemIcon>
                 <StyledMenuItemText
-                  value="Full Time Jobs"
+                  value="Newest Post"
                   onClick={handleChange}
                   readOnly
                   name="form"
@@ -62,7 +62,7 @@ const TotalJob = ({ currentSort, sortChnage }) => {
                   <Compass size="20" color={theme.btnMain} />
                 </StyledMenuItemIcon>
                 <StyledMenuItemText
-                  value="Part Time Jobs"
+                  value="Oldest Post"
                   onClick={handleChange}
                   readOnly
                   name="form"
@@ -73,40 +73,7 @@ const TotalJob = ({ currentSort, sortChnage }) => {
                   <Compass size="20" color={theme.btnMain} />
                 </StyledMenuItemIcon>
                 <StyledMenuItemText
-                  value="Remote Jobs"
-                  onClick={handleChange}
-                  readOnly
-                  name="form"
-                />
-              </StyledMenuItem>
-              <StyledMenuItem>
-                <StyledMenuItemIcon>
-                  <Compass size="20" color={theme.btnMain} />
-                </StyledMenuItemIcon>
-                <StyledMenuItemText
-                  value="Internship Jobs"
-                  onClick={handleChange}
-                  readOnly
-                  name="form"
-                />
-              </StyledMenuItem>
-              <StyledMenuItem>
-                <StyledMenuItemIcon>
-                  <Compass size="20" color={theme.btnMain} />
-                </StyledMenuItemIcon>
-                <StyledMenuItemText
-                  value="Contract"
-                  onClick={handleChange}
-                  readOnly
-                  name="form"
-                />
-              </StyledMenuItem>
-              <StyledMenuItem>
-                <StyledMenuItemIcon>
-                  <Compass size="20" color={theme.btnMain} />
-                </StyledMenuItemIcon>
-                <StyledMenuItemText
-                  value="Training Jobs"
+                  value="Date"
                   onClick={handleChange}
                   readOnly
                   name="form"
