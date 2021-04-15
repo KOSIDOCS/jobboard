@@ -37,9 +37,7 @@ app.get("/jobs", async (req, res) => {
     const result_2 = await axios.get(query_2);
     const allJobs = _.concat(result_1.data, result_2.data.results);
 
-    res.send(allJobs);
-
-    console.log("Loged out here", req.query);
+    res.send(allJobs)
   } catch (error) {
     res.status(400).send("Error while getting list of jobs.Try again later.");
   }

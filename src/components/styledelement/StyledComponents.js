@@ -8,9 +8,10 @@ export const BodyWrapper = styled.div`
   display: flex;
   flex-direction: column;
   background: ${(props) => (props.color === true ? theme.dark : theme.light)};
+  height: 100%;
 
   @media ${device.tablet} {
-    min-height: 90vh;
+    min-height: 100vh;
   }
 `;
 

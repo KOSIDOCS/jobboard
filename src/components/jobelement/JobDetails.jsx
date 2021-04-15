@@ -10,6 +10,7 @@ import moment from "moment";
 import { findLink } from "../../utils/constants";
 import useObserver from "../../custom-hooks/observer";
 import Image from "../Home/Image";
+import _ from 'lodash';
 
 const JobDetails = () => {
   const { details, onResetPage } = useContext(JobsContext);
@@ -30,7 +31,38 @@ const JobDetails = () => {
     company_logo,
     how_to_apply,
     created_at,
+    redirect_url,
+    created,
+    contract_type,
+    salary_min
   } = details;
+
+  const jobLocation = (location) => {
+    let job;
+
+    if (typeof location === 'object') {
+      job = location?.display_name
+    } else {
+      job = location;
+    }
+    return job;
+  }
+
+  const jobType = (type, contract) => {
+    let jobtype = 'Not available';
+    if (!_.isEmpty(type)) {
+      jobtype = type;
+    }
+
+    if (!_.isEmpty(contract)) {
+      jobtype = contract;
+    }
+    return jobtype;
+  }
+
+  const content = _.isObject(company) ? company?.display_name : company;
+
+  const salary = salary_min ? `$${salary_min}/Year` : "Not available";
 
   return (
     <Wrapper>
@@ -40,8 +72,8 @@ const JobDetails = () => {
       <TopHeader>
         <TopHead>
           <LeftWrap>
-            <JobTitle>{title}</JobTitle>
-            <JobLocation>{location}.</JobLocation>
+            <JobTitle>{title.replace(/(<([^>]+)>)/gi, "")}</JobTitle>
+            <JobLocation>{jobLocation(location)}.</JobLocation>
           </LeftWrap>
           <RightWrap>
             <JobShare>
@@ -52,35 +84,35 @@ const JobDetails = () => {
                 <Share2 size="20" color={theme.textDark} />
               </ShareBtn>
             </JobShare>
-            <JobTime>Posted {moment(new Date(created_at)).fromNow()}</JobTime>
+            <JobTime>Posted {moment(new Date(created_at ?? created)).fromNow()}</JobTime>
           </RightWrap>
         </TopHead>
         <GroupWrap>
           <ItemGroup>
             <ItemHead>Experience</ItemHead>
-            <ItemSub>Minimum 1 Year</ItemSub>
+            <ItemSub>Not available</ItemSub>
           </ItemGroup>
           <Divider />
           <ItemGroup>
             <ItemHead>Work Level</ItemHead>
-            <ItemSub>Senior Level</ItemSub>
+            <ItemSub>Not available</ItemSub>
           </ItemGroup>
           <Divider />
           <ItemGroup>
             <ItemHead>Employee Type</ItemHead>
-            <ItemSub>{type} Jobs</ItemSub>
+            <ItemSub>{jobType(type, contract_type)}</ItemSub>
           </ItemGroup>
           <Divider />
           <ItemGroup>
             <ItemHead>Offer Salary</ItemHead>
-            <ItemSub>$2150.0 / Month</ItemSub>
+            <ItemSub>{salary}</ItemSub>
           </ItemGroup>
         </GroupWrap>
       </TopHeader>
       <Description>
         <OverviewTitle>Overview</OverviewTitle>
         <OverviewDetail
-          dangerouslySetInnerHTML={{ __html: company }}
+          dangerouslySetInnerHTML={{ __html: content }}
         ></OverviewDetail>
         <DescriptTitle>Job Description</DescriptTitle>
         <DescriptDetail
@@ -89,7 +121,7 @@ const JobDetails = () => {
         <BtnWrap>
           <AlertBtn
             as="a"
-            href={findLink(how_to_apply, company_url)}
+            href={findLink(how_to_apply ?? redirect_url, company_url)}
             target="_blank"
             rel="noopener noreferrer"
           >

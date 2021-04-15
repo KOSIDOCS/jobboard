@@ -19,8 +19,6 @@ export const initiateGetJobs = (data, isLoadMore) => {
         page = isNaN(page) ? "" : `&page=${page}`;
       }
 
-      console.log("Logged from redux", jobValue, locaValue, jobtype);
-
       const jobs = await axios.get(
         `${BASE_API_URL}/jobs?description=${jobValue}&location=${locaValue}&jobtype=${jobtype}${page}&salary_range=${selectSalary}`
       );

@@ -63,7 +63,6 @@ const CustomHomePage = (props) => {
   const handleSearch = (selection) => {
     loadJobs(selection);
     setSelection(selection);
-    console.log("Logged from homepage", selection);
   };
 
   const handleItemClick = (jobId) => {

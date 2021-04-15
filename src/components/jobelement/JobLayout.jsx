@@ -59,7 +59,7 @@ const Wrapper = styled.div`
   width: ${(props) => (props.isWidth ? props.isWidth : "100%")};
   display: flex;
   flex-direction: row;
-  margin-left: 30px; /**remove later */
+  /* margin-left: 30px; *remove later */
   flex-wrap: wrap;
   margin-right: ${(props) => props.isWidth && "55px"};
 `;
