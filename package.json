@@ -25,6 +25,7 @@
     "redux-thunk": "2.3.0",
     "styled-components": "^5.2.1"
   },
+  "proxy": "http://localhost:5000",
   "scripts": {
     "start": "cd server && npm install && npm start",  
     "heroku-postbuild": "npm install && npm run build"
