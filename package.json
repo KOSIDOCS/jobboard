@@ -27,7 +27,8 @@
   },
   "proxy": "http://localhost:5000",
   "scripts": {
-    "start": "cd server && npm install && npm start",  
+    "start": "cd server && npm install && npm start",
+    "build": "react-scripts build",  
     "heroku-postbuild": "npm install && npm run build"
   },
   "eslintConfig": {
