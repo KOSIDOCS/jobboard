@@ -4,7 +4,11 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "nodemon server.js",  
+    "heroku-postbuild": "npm install && npm start"
+  },
+  "engines": {  
+    "node": "12.18.2"
   },
   "dependencies": {
     "axios": "0.19.2",
